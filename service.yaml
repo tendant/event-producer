@@ -1,13 +1,15 @@
 apiVersion: serving.knative.dev/v1
 kind: Service
 metadata:
-  name: helloworld-go
+  name: helloworld-producer
   namespace: default
 spec:
   template:
     spec:
       containers:
-      - image: docker.io/{username}/helloworld-go
+      - image: docker.io/{username}/helloworld-producer
         env:
         - name: TARGET
           value: "Go Sample v1"
+          - name: BROKER_URL
+            value: "http://broker-ingress.knative-eventing.svc.cluster.local/default/default"
