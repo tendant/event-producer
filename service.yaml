@@ -7,9 +7,9 @@ spec:
   template:
     spec:
       containers:
-      - image: docker.io/{username}/helloworld-producer
+      - image: wang/helloworld-producer
         env:
-        - name: TARGET
-          value: "Go Sample v1"
+          - name: TARGET
+            value: "Go Sample v1"
           - name: BROKER_URL
             value: "http://broker-ingress.knative-eventing.svc.cluster.local/default/default"
